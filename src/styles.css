@@ -87,6 +87,7 @@ img {
 .container {
     max-width: 1320px;
     padding-inline: 0.75rem;
+    margin-inline: auto;
 }
 
 .grid {
@@ -99,7 +100,7 @@ img {
     display: block;
     color: var(--body-color);
     font-family: var(--second-font);
-    margin-left: 12%;
+    letter-spacing: 2px;
 }
 
 .button {
