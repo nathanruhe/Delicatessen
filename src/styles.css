@@ -47,7 +47,7 @@ body {
 }
 
 body {
-    background-color: var(--body-color);
+    background-image: url(assets/img/home-bg.jpg);
     color: var(--text-color);
 }
 
@@ -56,6 +56,10 @@ button {
     outline: none;
     border: none;
     background-color: transparent;
+}
+
+button {
+    cursor: pointer;
 }
 
 h1,

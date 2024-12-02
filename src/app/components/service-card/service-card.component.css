@@ -1,0 +1,34 @@
+.services {
+    display: flex;
+    position: relative;
+    justify-self: center;
+    gap: 50px;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 30px 0;
+}
+
+.services__card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 260px;
+}
+
+.services__img-wrapper {
+    display: flex;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-color: var(--first-color);
+    border: 5px solid var(--body-color);
+    outline: 5px solid var(--first-color);
+    align-items: center;
+    justify-content: center;
+}
+
+.services__title {
+    font-size: var(--h3-font-size);
+    margin-block: 1.25rem .25rem;
+}

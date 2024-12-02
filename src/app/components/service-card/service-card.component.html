@@ -1,1 +1,9 @@
-<p>service-card works!</p>
+<div class="services">
+    <div class="services__card" *ngFor="let card of services">
+        <div class="services__img-wrapper">
+            <img src="{{ card.img }}" alt="" class="services__img">
+        </div>
+        <h3 class="services__title">{{ card.title }}</h3>
+        <span class="services__description">{{ card.description }}</span>
+    </div>
+</div>

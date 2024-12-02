@@ -24,6 +24,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { AdminComponent } from './pages/admin/admin.component';
 import { ReviewCardComponent } from './components/review-card/review-card.component';
 import { Error404Component } from './pages/error404/error404.component';
+import { BookingFormComponent } from './components/booking-form/booking-form.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { Error404Component } from './pages/error404/error404.component';
     AdminComponent,
     ReviewCardComponent,
     Error404Component,
+    BookingFormComponent,
   ],
   imports: [
     BrowserModule,

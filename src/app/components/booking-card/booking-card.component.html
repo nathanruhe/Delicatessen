@@ -1,1 +1,10 @@
-<p>booking-card works!</p>
+<div class="booking">
+    <div class="booking__card" *ngFor="let card of booking">
+        <img src="{{ card.img }}" alt="" class="booking__img-wrapper">
+        <div class="booking__content">
+            <h3 class="booking__title">{{ card.title }}</h3>
+            <p class="booking__description">{{ card.description }}</p>
+            <button class="button">Reservar</button>
+        </div>
+    </div>
+</div>
