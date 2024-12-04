@@ -2,10 +2,10 @@
     display: flex;
     position: relative;
     justify-self: center;
-    gap: 50px;
+    gap: 40px;
     flex-wrap: wrap;
     justify-content: center;
-    padding: 30px 0;
+    width: 100%;
 }
 
 .services__card {
@@ -13,7 +13,7 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    width: 260px;
+    width: 250px;
 }
 
 .services__img-wrapper {
@@ -31,4 +31,9 @@
 .services__title {
     font-size: var(--h3-font-size);
     margin-block: 1.25rem .25rem;
+    color: var(--first-color);
+}
+
+.services__description {
+    color: var(--body-color);
 }

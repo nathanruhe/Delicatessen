@@ -1,1 +1,50 @@
-<p>booking-form works!</p>
+<form class="formulario" #newBooking="ngForm" (ngSubmit)="booking(newBooking)">
+
+    <button type="button" class="close-button" (click)="closeModal()">x</button>
+
+    <h3 class="formulario__title">Solicita tu Reserva</h3>
+    <p class="formulario__info">Las reservas están sujetas a confirmación vía email o, si es necesario, le contactaremos.</p>
+    <h4 class="formulario__info">TIPO DE RESERVA: {{ typeBooking }}</h4>
+    <p class="formulario__campo">* Todos los campos son obligatorios</p>
+
+    <div class="formulario__content">
+        <div>
+            <input type="text" placeholder="Nombre y Apellido" name="name" ngModel required #nameId="ngModel"
+                [ngClass]="{'invalido': (nameId.dirty || nameId.touched) && nameId.invalid}">
+        </div>
+
+        <div>
+            <input type="text" placeholder="Teléfono" name="tel" ngModel required #telId="ngModel"
+                [ngClass]="{'invalido': (telId.dirty || telId.touched) && telId.invalid}">
+        </div>
+
+        <div>
+            <input type="email" placeholder="Email" name="email" ngModel required email #emailId="ngModel"
+                [ngClass]="{'invalido': (emailId.dirty || emailId.touched) && emailId.invalid}">
+        </div>
+
+        <div>
+            <input type="date" name="date" ngModel required #dateId="ngModel"
+                [ngClass]="{'invalido': (dateId.dirty || dateId.touched) && dateId.invalid}">
+        </div>
+
+        <div>
+            <input type="time" name="time" ngModel required #timeId="ngModel"
+                [ngClass]="{'invalido': (timeId.dirty || timeId.touched) && timeId.invalid}">
+        </div>
+
+        <div>
+            <input type="number" placeholder="Número de Personas" name="guests" ngModel required min="1" #guestsId="ngModel"
+                [ngClass]="{'invalido': (guestsId.dirty || guestsId.touched) && guestsId.invalid}">
+        </div>
+
+        <div class="textarea">
+            <label for="">* Opcional</label>
+            <textarea placeholder="Cuéntanos sobre tu reserva." name="comment" ngModel #commentId="ngModel"
+                [ngClass]="{'invalido': (commentId.dirty || commentId.touched) && commentId.invalid}">
+            </textarea>
+        </div>
+    </div>
+
+    <button class="button" type="submit" [disabled]="newBooking.invalid">Reservar</button>
+</form>

@@ -1,28 +1,33 @@
-<section class="container">
+<section class="booking container">
 
-    <header class="header">
-        <h1 class="header__title">¡Reserva tu experiencia!</h1>
-        <p class="header__subtitle">
+    <header class="booking-header">
+        <h1 class="booking-header__title">¡Reserva tu experiencia!</h1>
+        <p class="booking-header__subtitle">
             Descubre nuestros servicios y opciones de reserva, diseñados para hacer de cada visita un momento inolvidable.
         </p>
     </header>
 
-    <section class="introduction">
-        <h2 class="introduction__title">¿Qué te ofrecemos?</h2>
-        <p class="introduction__text">
+    <section class="booking-introduction">
+        <h2 class="booking-introduction__title">¿Qué te ofrecemos?</h2>
+        <p class="booking-introduction__text">
             En nuestro restaurante nos dedicamos a ofrecerte una experiencia completa, adaptada a tus necesidades. Desde recogidas rápidas hasta espacios exclusivos para momentos especiales, como celebraciones privadas o eventos corporativos.
         </p>
-        <p class="introduction__text">
+        <p class="booking-introduction__text">
             Disfruta de terrazas acogedoras, zonas VIP y servicios personalizados diseñados para que cada visita sea única. ¡Explora nuestras opciones y encuentra la ideal para tu ocasión!
         </p>
     </section>
 
-    <div class="cards">
-        <h3 class="reservas">SERVICIOS</h3>
+    <div class="booking-cards">
+        <h3 class="booking-cards__title">SERVICIOS</h3>
         <app-service-card></app-service-card>
-        <hr>
-        <h3 class="reservas">RESERVAS</h3>
-        <app-booking-card></app-booking-card>
+        <hr class="booking-cards__divider">
+        <h3 class="booking-cards__title" id="reservas">RESERVAS</h3>
+        <app-booking-card (typeBooking)="openModal($event)"></app-booking-card>
+    </div>
+
+    <!-- MODAL -->
+    <div class="booking-modal" [class.booking-modal--visible]="modal">
+        <app-booking-form [typeBooking]="typeSelected" (closeModalEvent)="closeModal()"></app-booking-form>
     </div>
 
 </section>

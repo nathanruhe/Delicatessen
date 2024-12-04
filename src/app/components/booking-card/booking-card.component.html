@@ -4,7 +4,7 @@
         <div class="booking__content">
             <h3 class="booking__title">{{ card.title }}</h3>
             <p class="booking__description">{{ card.description }}</p>
-            <button class="button">Reservar</button>
+            <button class="button" (click)="emitBooking(card.title)">Reservar</button>
         </div>
     </div>
 </div>

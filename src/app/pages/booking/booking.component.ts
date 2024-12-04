@@ -7,4 +7,15 @@ import { Component } from '@angular/core';
 })
 export class BookingComponent {
 
+  public modal: boolean = false;
+  public typeSelected: string = '';
+
+  openModal(type: string) {
+    this.typeSelected = type;
+    this.modal = true;
+  }
+
+  closeModal() {
+    this.modal = false;
+  }
 }
