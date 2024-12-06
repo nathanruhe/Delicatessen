@@ -1,0 +1,170 @@
+.contact {
+    margin-top: 150px;
+}
+
+/* -------- CONTACT HEADER -------- */
+.contact-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.contact-header__title {
+    font-size: 2.5rem;
+    color: var(--first-color);
+}
+
+.contact-header__subtitle {
+    font-size: 1.2rem;
+    color: var(--body-color);
+    margin-top: 10px;
+    padding: 0 6%;
+}
+
+/* -------- MAIN CONTACT SECTIONS -------- */
+.contact-main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+/* CONTACT FORM */
+
+.form-title {
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--second-color);
+    font-size: var(--h2-font-size);
+}
+
+.contact-form__form {
+    display: flex;
+    flex-direction: column;
+    height: 460px;
+    padding: 0 20px;
+    gap: 1rem;
+}
+
+.contact-form__input {
+    padding: 1rem;
+    border-bottom: 1px solid rgb(100, 100, 100);
+    font-size: var(--normal-font-size);
+    color: var(--body-color);
+    width: 100%;
+    background-color: transparent;
+    font-family: var(--body-font);
+    transition: .2s linear;
+}
+
+.contact-form__input:focus {
+    border-color: var(--first-color);
+    outline: none;
+    border-radius: 10px;
+}
+
+.textarea {
+    height: 120px;
+    resize: none;
+    border-radius: 10px;
+}
+
+.button {
+    margin: 0 auto;
+}
+
+.error-message {
+    color: var(--second-color);
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+/* MAPA */
+.contact-map {
+    background-color: var(--white);
+    border-radius: 0.5rem;
+}
+
+.map-container iframe {
+    padding: 0 20px;
+    border-radius: 10px;
+    width: 100%;
+}
+
+/* -------- REVIEW SECTION -------- */
+.contact-review {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 0;
+}
+
+.contact-review__title {
+    margin: 20px 0;
+    color: var(--second-color);
+    font-size: var(--h2-font-size);
+}
+
+.contact-review__form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    height: 22rem;
+    width: 80%;
+}
+
+.form-rating {
+    display: flex;
+    justify-content: center;
+    flex-direction: row-reverse;
+    gap: 0.5rem;
+}
+
+.form-rating input {
+    display: none;
+}
+
+.form-rating label {
+    font-size: 2rem;
+    color: var(--gray);
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.form-rating label:hover,
+.form-rating label:hover ~ label {
+    color: var(--first-color);
+}
+
+.form-rating input:checked ~ label {
+    color: var(--first-color);
+}
+
+.reviews__input {
+    padding: 1rem;
+    border: 1px solid rgb(100, 100, 100);
+    border-radius: 0.5rem;
+    font-size: var(--normal-font-size);
+    color: var(--body-color);
+    width: 100%;
+    background-color: transparent;
+    font-family: var(--body-font);
+    transition: all .2s linear;
+}
+
+.reviews__input:focus {
+    border-color: var(--first-color);
+    outline: none;
+    border-radius: 10px;
+}
+
+/* -------- RESPONSIVE -------- */
+@media (max-width: 900px) {
+    .contact-main {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-review__form {
+        width: 90%;
+    }
+}

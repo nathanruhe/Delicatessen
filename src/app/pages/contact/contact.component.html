@@ -1,1 +1,93 @@
-<p>contact works!</p>
+<div class="contact container">
+
+    <header class="contact-header">
+        <h1 class="contact-header__title">Contacto</h1>
+        <p class="contact-header__subtitle">
+            Si tienes preguntas, sugerencias o necesitas más información, completa el formulario a continuación. 
+            También puedes dejar tu valoración para ayudarnos a mejorar. ¡Estamos aquí para ti!
+        </p>
+    </header>
+
+    <div class="contact-main">
+        <!-- FORMULARIO DE CONTACTO -->
+        <section class="contact-form">
+            <h2 class="form-title">Formulario de Contacto</h2>
+            <form class="contact-form__form" #contactForm="ngForm" (ngSubmit)="newContact(contactForm)">
+                
+                <div class="input-group">
+                    <input type="text" name="name" placeholder="* Nombre" class="contact-form__input" ngModel required #nameId="ngModel">
+                </div>
+    
+                <div class="input-group">
+                    <input type="email" name="email" placeholder="* Email" class="contact-form__input"
+                        id="contact-email" ngModel required email #email="ngModel">
+                </div>
+    
+                <div class="input-group">
+                    <input type="text" name="subject" placeholder="* Asunto" class="contact-form__input"
+                        id="contact-subject" ngModel required #subject="ngModel">
+                </div>
+
+                <div class="input-group">
+                    <textarea name="message" id="contact-message" class="contact-form__input textarea" 
+                        placeholder="* Escribe un mensaje" ngModel required #message="ngModel">
+                    </textarea>
+                </div>
+    
+                <button class="button" type="submit">Contactar</button>
+
+                <p *ngIf="contactForm.invalid && contactForm.submitted" class="error-message">
+                    * Todos los campos son obligatorios.
+                </p>
+            </form>
+        </section>
+
+        <!-- MAPA -->
+        <section class="contact-map">
+            <h2 class="form-title">Ubicación</h2>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5986.946280170293!2d2.1662233425082102!3d41.385530149175175!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a4a2f1602b4819%3A0x1eecc2af1c60d64b!2sPla%C3%A7a%20de%20Catalunya!5e0!3m2!1ses!2ses!4v1733415450866!5m2!1ses!2ses" width="100%" height="350px" style="border:0;" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </section>
+    </div>
+
+    <hr>
+
+    <!-- SECCIÓN DE VALORACIONES -->
+    <section class="contact-review">
+        <h2 class="contact-review__title">Déjanos tu valoración</h2>
+    
+        <form class="contact-review__form" #reviewForm="ngForm" (ngSubmit)="newReview(reviewForm)">
+            
+            <div class="form-rating">
+                <input type="radio" id="star5" name="rating" value="5" ngModel required #ratingId="ngModel">
+                <label for="star5" title="5 estrellas">★</label>
+                
+                <input type="radio" id="star4" name="rating" value="4" ngModel>
+                <label for="star4" title="4 estrellas">★</label>
+                
+                <input type="radio" id="star3" name="rating" value="3" ngModel>
+                <label for="star3" title="3 estrellas">★</label>
+                
+                <input type="radio" id="star2" name="rating" value="2" ngModel>
+                <label for="star2" title="2 estrellas">★</label>
+                
+                <input type="radio" id="star1" name="rating" value="1" ngModel>
+                <label for="star1" title="1 estrella">★</label>
+            </div>
+
+            <div class="form-textarea">
+                <textarea name="reviewMessage" id="review-message" class="reviews__input textarea"
+                    placeholder="* Escribe tu valoración aquí" ngModel required #reviewMessageId="ngModel">
+                </textarea>
+            </div>
+    
+            <button class="button btn" type="submit">Enviar</button>
+    
+            <p *ngIf="reviewForm.invalid && reviewForm.submitted" class="error-message">
+                * Todos los campos son obligatorios.
+            </p>
+        </form>
+    </section>
+
+</div>
