@@ -1,1 +1,22 @@
-<p>menu works!</p>
+<section class="menu container">
+    <header class="menu-header">
+        <h1 class="menu-header__title">¡Descubre nuestro menú!</h1>
+    </header>
+
+    <div class="menu-links">
+        <ul>
+            <li [ngClass]="{'active': activeMenu === 'burguer'}" (click)="changeMenu('burguer')">Hamburguesas</li>
+            <li [ngClass]="{'active': activeMenu === 'pizza'}" (click)="changeMenu('pizza')">Pizzas</li>
+            <li [ngClass]="{'active': activeMenu === 'meat'}" (click)="changeMenu('meat')">Carnes</li>
+            <li [ngClass]="{'active': activeMenu === 'pasta'}" (click)="changeMenu('pasta')">Pastas</li>
+            <li [ngClass]="{'active': activeMenu === 'fish'}" (click)="changeMenu('fish')">Pescados</li>
+            <li [ngClass]="{'active': activeMenu === 'salad'}" (click)="changeMenu('salad')">Ensaladas</li>
+            <li [ngClass]="{'active': activeMenu === 'dessert'}" (click)="changeMenu('dessert')">Postres</li>
+            <li [ngClass]="{'active': activeMenu === 'drink'}" (click)="changeMenu('drink')">Bebidas</li>
+        </ul>
+    </div>
+
+    <div class="menu-cards">
+        <app-food-card [menu]="selectedMenu"></app-food-card>
+    </div>
+</section>

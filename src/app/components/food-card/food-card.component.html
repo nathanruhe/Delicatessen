@@ -1,1 +1,14 @@
-<p>food-card works!</p>
+<div class="menu">
+    <div class="menu-card" *ngFor="let card of menu">
+        <div class="menu-card__img">
+            <img src="{{ card.img }}" alt="{{ card.title }}" />
+        </div>
+        <div class="menu-card__content">
+            <div class="menu-card__content__div">
+            <p class="menu-card__content__title">{{ card.title }}</p>
+            <p class="menu-card__content__price">{{ card.price }} €</p>
+            </div>
+            <p class="menu-card__content__description">{{ card.description }}</p>
+        </div>
+    </div>
+</div>
