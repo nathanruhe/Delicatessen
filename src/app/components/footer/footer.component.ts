@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-footer',
@@ -7,4 +8,13 @@ import { Component } from '@angular/core';
 })
 export class FooterComponent {
 
+  newsletter(form: NgForm) {
+    if (form.valid) {
+      const nuevaLetter = {
+        email: form.value.email
+      };
+      
+      form.reset();
+    } 
+  }
 }

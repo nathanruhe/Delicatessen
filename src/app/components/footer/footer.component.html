@@ -1,0 +1,88 @@
+<footer class="footer">
+
+    <section class="footer-section__web">
+        <h3>Secciones</h3>
+        <ul>
+            <div>
+                <i class="ri-arrow-right-s-fill"></i>
+                <li><a href="/about">Sobre</a></li>
+            </div>
+
+            <div>
+                <i class="ri-arrow-right-s-fill"></i>
+                <li><a href="/menu">Menú</a></li>
+            </div>
+
+            <div>
+                <i class="ri-arrow-right-s-fill"></i>
+                <li><a href="/booking">Servicios</a></li>
+            </div>
+
+            <div>
+                <i class="ri-arrow-right-s-fill"></i>
+                <li><a href="/events">Eventos</a></li>
+            </div>
+
+            <div>
+                <i class="ri-arrow-right-s-fill"></i>
+                <li><a href="/contact">Contacto</a></li>
+            </div>
+        </ul>
+    </section>
+
+    <section class="footer-section__contact">
+        <h3>Contacto</h3>
+        <ul>
+            <div>
+                <i class="ri-map-pin-2-fill"></i>
+                <li>Plaza catalunya n2, Barcelona</li>
+            </div>
+
+            <div>
+                <i class="ri-phone-fill"></i>
+                <li>93 123 456</li>
+            </div>
+
+            <div>
+                <i class="ri-mail-fill"></i>
+                <li>info@delicatessen.com</li>
+            </div>
+        </ul>
+        <div class="footer-section__contact--icons">
+            <a href="https://www.facebook.com/" target="_blank"><i class="ri-facebook-fill"></i></a>
+            
+            <a href="https://www.instagram.com/" target="_blank"><i class="ri-instagram-fill"></i></a>
+
+            <a href="https://www.linkedin.com/" target="_blank"><i class="ri-linkedin-fill"></i></a>
+
+            <a href="https://www.youtube.com/" target="_blank"><i class="ri-youtube-fill"></i></a>
+        </div>
+    </section>
+
+    <section class="footer-section__opening">
+        <h3>Horarios</h3>
+        <div class="footer-section__opening--div">
+            <div>
+                <p>Lun a Dom: Restaurante</p>
+                <p>12h-16h y 20h-23h</p>
+            </div>
+
+            <div>
+                <p>Jue a Dom: Pub</p>
+                <p>24h-03h</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="footer-section__newsletter">
+        <h3>Newsletter</h3>
+        <span>Suscríbete y entérate de nuestras promociones.</span>
+        <form #newsLetter="ngForm" (ngSubmit)="newsletter(newsLetter)">
+            <input type="email" placeholder="Escriba su email" name="email" ngModel required email #emailId="ngModel"
+            [ngClass]="{'invalido': (emailId.dirty || emailId.touched) && emailId.invalid}">
+
+            <button class="button" type="submit" [disabled]="newsLetter.invalid">Suscribirse</button>
+        </form>
+    </section>
+
+</footer>
