@@ -1,1 +1,23 @@
-<p>admin works!</p>
+<section class="admin container">
+    <form class="admin-form" #newAdmin="ngForm" (ngSubmit)="admin(newAdmin)">
+        <h3 class="admin-form__title">Area de administración</h3>
+
+        <div class="admin-form__content">
+            <div>
+                <input type="text" placeholder="Usuario" name="user" ngModel required #userId="ngModel">
+            </div>
+    
+            <div>
+                <input type="password" placeholder="Contraseña" name="password" ngModel required #passwordId="ngModel">
+            </div>
+        </div>
+    
+        <div class="admin-form__submit">
+            <button class="button" type="submit">Entrar</button>
+
+            <p *ngIf="newAdmin.invalid && newAdmin.submitted" class="error-message">
+                ¡Error al iniciar sesión!
+            </p>
+        </div>
+    </form>
+</section>
