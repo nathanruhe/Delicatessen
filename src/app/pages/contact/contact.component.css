@@ -2,7 +2,6 @@
     margin-top: 150px;
 }
 
-/* -------- CONTACT HEADER -------- */
 .contact-header {
     text-align: center;
     margin-bottom: 2.5rem;
@@ -20,15 +19,12 @@
     padding: 0 6%;
 }
 
-/* -------- MAIN CONTACT SECTIONS -------- */
 .contact-main {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
     margin-bottom: 3rem;
 }
-
-/* CONTACT FORM */
 
 .form-title {
     text-align: center;
@@ -79,7 +75,6 @@
     text-align: center;
 }
 
-/* MAPA */
 .contact-map {
     background-color: var(--white);
     border-radius: 0.5rem;
@@ -91,7 +86,6 @@
     width: 100%;
 }
 
-/* -------- REVIEW SECTION -------- */
 .contact-review {
     display: flex;
     flex-direction: column;
@@ -109,8 +103,8 @@
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-    height: 22rem;
-    width: 80%;
+    height: 27rem;
+    min-width: 600px;
 }
 
 .form-rating {
@@ -118,6 +112,7 @@
     justify-content: center;
     flex-direction: row-reverse;
     gap: 0.5rem;
+    margin-bottom: -20px;
 }
 
 .form-rating input {
@@ -165,6 +160,6 @@
     }
 
     .contact-review__form {
-        width: 90%;
+        min-width: 90%;
     }
 }

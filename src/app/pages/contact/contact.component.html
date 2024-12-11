@@ -14,21 +14,21 @@
             <h2 class="form-title">Formulario de Contacto</h2>
             <form class="contact-form__form" #contactForm="ngForm" (ngSubmit)="newContact(contactForm)">
                 
-                <div class="input-group">
+                <div>
                     <input type="text" name="name" placeholder="* Nombre" class="contact-form__input" ngModel required #nameId="ngModel">
                 </div>
     
-                <div class="input-group">
+                <div>
                     <input type="email" name="email" placeholder="* Email" class="contact-form__input"
                         id="contact-email" ngModel required email #email="ngModel">
                 </div>
     
-                <div class="input-group">
+                <div>
                     <input type="text" name="subject" placeholder="* Asunto" class="contact-form__input"
                         id="contact-subject" ngModel required #subject="ngModel">
                 </div>
 
-                <div class="input-group">
+                <div>
                     <textarea name="message" id="contact-message" class="contact-form__input textarea" 
                         placeholder="* Escribe un mensaje" ngModel required #message="ngModel">
                     </textarea>
@@ -74,6 +74,10 @@
                 
                 <input type="radio" id="star1" name="rating" value="1" ngModel>
                 <label for="star1" title="1 estrella">★</label>
+            </div>
+
+            <div>
+                <input type="text" name="name" placeholder="* Nombre y Apellidos" class="contact-form__input" ngModel required #nameId="ngModel">
             </div>
 
             <div class="form-textarea">
