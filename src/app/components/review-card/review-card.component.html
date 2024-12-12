@@ -1,1 +1,13 @@
-<p>review-card works!</p>
+<div class="review">
+    <div class="review-card" *ngFor="let review of reviews">
+        <div class="review__name">
+            <h3>{{ review.name }}</h3>
+            <div class="stars">
+              <ng-container *ngFor="let i of [1, 2, 3, 4, 5]">
+                  <span *ngIf="i <= review.stars">&#9733;</span>
+                </ng-container>
+            </div>
+        </div>
+        <p>{{ review.message }}</p>
+    </div>
+</div>
