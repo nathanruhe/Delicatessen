@@ -1,15 +1,16 @@
 .footer {
     background-color: black;
-    height: 20rem;
     color: var(--body-color);
     display: flex;
     justify-content: center;
     gap: 5rem;
     align-items: center;
+    padding: 50px;
 }
 
 h3 {
     color: var(--first-color);
+    text-align: center;
 }
 
 ul {
@@ -85,4 +86,30 @@ input {
     padding: 0.3125rem 0.625rem;
     color: white;
     width: 100%;
+}
+
+
+@media (max-width: 1200px) {
+    .footer {
+        flex-wrap: wrap;
+        padding: 50px 20px;
+    }
+}
+
+@media (max-width: 596px) {
+
+    .footer-section__web,
+    .footer-section__contact,
+    .footer-section__opening,
+    .footer-section__newsletter {
+        height: 100%;
+    }
+}
+
+@media (max-width: 535px) {
+    .footer-section__web ul {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
 }
