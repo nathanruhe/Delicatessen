@@ -1,6 +1,8 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import { Booking } from "src/app/models/booking"
+import { BookingService } from 'src/app/shared/booking.service';
 
 @Component({
   selector: 'app-booking-form',
@@ -12,33 +14,22 @@ export class BookingFormComponent {
   @Input() typeBooking: string = '';
   @Output() closeModalEvent = new EventEmitter<void>();
 
-  public bookingRestaurant: any[] = [];
-  public bookingPub: any[] = [];
-  public bookingPrivate: any[] = [];
-
-  constructor(private toastr: ToastrService) {}
+  constructor(private toastr: ToastrService, private bookingService: BookingService) {}
 
   booking(form: NgForm) {
     if (form.valid) {
-      const nuevaReserva = {
-        tipo: this.typeBooking,
-        name: form.value.name,
-        tel: form.value.tel,
-        email: form.value.email,
-        date: form.value.date,
-        time: form.value.time,
-        guests: form.value.guests,
-        comment: form.value.comment
-      };
+      const nuevaReserva = new Booking (
+        this.typeBooking,
+        form.value.name,
+        form.value.tel,
+        form.value.email,
+        form.value.date,
+        form.value.time,
+        form.value.guests,
+        form.value.comment
+      );
 
-      if (this.typeBooking === 'Restaurante') {
-        this.bookingRestaurant.push(nuevaReserva);
-      } else if (this.typeBooking === 'Pub') {
-        this.bookingPub.push(nuevaReserva);
-      } else if (this.typeBooking === 'Privado') {
-        this.bookingPrivate.push(nuevaReserva);
-      }
-
+      this.bookingService.addBooking(nuevaReserva);
       this.toastr.success('¡Reserva solicitada!');
       form.reset();
       
