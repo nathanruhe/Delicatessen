@@ -95,7 +95,7 @@ export class MenuComponent {
     { 
       img: "https://cdn0.uncomo.com/es/posts/3/9/5/como_hacer_costillas_bbq_en_sarten_50593_orig.jpg", 
       title: 'Costillas BBQ', 
-      description: 'Costillas de cerdo tiernas y jugosas, bañadas en salsa barbacoa casera, servidas con papas fritas y mazorca de maíz.', 
+      description: 'Costillas de cerdo tiernas, bañadas en salsa barbacoa casera, servidas con papas fritas y mazorca de maíz.', 
       price: 14.50
     },
     { 
@@ -107,7 +107,7 @@ export class MenuComponent {
     { 
       img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxtrA4HZkk1WjmhGR7zdanbb7XC7shhF975SPyNbRpGDiLZ5U2OyezbC7dejWPVasKP6k&usqp=CAU", 
       title: 'Churrasco Argentino', 
-      description: 'Churrasco de res a la parrilla, con un toque de chimichurri, acompañado de papas a la francesa y ensalada de tomate y aguacate.', 
+      description: 'Churrasco a la parrilla, con un toque de chimichurri, acompañado de papas a la francesa y ensalada de tomate y aguacate.', 
       price: 18.00
     },
     { 

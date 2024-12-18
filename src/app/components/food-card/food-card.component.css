@@ -15,7 +15,7 @@
 }
 
 .menu-card__img {
-    border-radius: 10px;
+    border-radius:10px;
     height: 60%;
     width: 100%;
 }
@@ -31,10 +31,10 @@ img {
     background-color: black;
     display: flex;
     flex-direction: column;
-    text-align: start;
     padding: 20px;
     gap: 10px;
     height: 40%;
+    background-color: rgb(50, 50, 50);
 }
 
 .menu-card__content__div {
@@ -43,4 +43,18 @@ img {
     color: var(--first-color);
     font-family: var(--second-font);
     font-size: 25px;
+}
+
+@media (max-width: 853px) {
+    .menu {
+        gap: 80px;
+    }
+
+    .menu-card__content__div {
+        font-size: 20px;
+    }
+
+    .menu-card__content {
+        height: 190px;
+    }
 }
