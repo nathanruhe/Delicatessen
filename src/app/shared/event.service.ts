@@ -8,7 +8,7 @@ export class EventService {
 
   public events: Event[] = [
     {
-      img: "https://media.timeout.com/images/103105630/750/422/image.jpg",
+      img: "https://hotelarclarambla.com/agenda/wp-content/uploads/2023/05/hotel-arc-rambla-barcelona-blog-tourism-best-venues-music-direct-harlem-jazz-club.webp",
       title: "Música en Vivo",
       description: "Disfruta de una velada llena de música en vivo con artistas locales. Una noche perfecta para relajarte y disfrutar del buen ambiente.",
       date: "10/01/2025",
