@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { EventService } from 'src/app/shared/event.service';
+import { Event } from 'src/app/models/event';
 
 declare var Swiper: any;
 
@@ -9,28 +11,27 @@ declare var Swiper: any;
 })
 export class HomeComponent implements OnInit {
   
-  constructor() { }
+  public upcomingEvents: Event[] = [];
+
+  constructor(private eventService: EventService) { }
 
   ngOnInit(): void {
     var homeSwiper = new Swiper(".home-swiper", {
       spaceBetween: 30,
-      effect: "cube",
+      effect: "slide",
       loop: "true",
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-        dynamicBullets: true,
-      },
       autoplay: {
         delay: 2500,
         disableOnInteraction: false,
       },
       cubeEffect: {
         shadow: false,
-        slideShadows: true,
+        slideShadows: false,
         shadowOffset: 20,
         shadowScale: 0.94,
       },
     });
+
+    this.upcomingEvents = this.eventService.getEvents().slice(0, 2);
   }
 }
