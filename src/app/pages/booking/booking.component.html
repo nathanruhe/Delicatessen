@@ -20,8 +20,9 @@
     <div class="booking-cards">
         <h3 class="booking-cards__title">SERVICIOS</h3>
         <app-service-card></app-service-card>
-        <hr class="booking-cards__divider">
-        <h3 class="booking-cards__title" id="reservas">RESERVAS</h3>
+        <div class="booking-cards__div" id="reservas"></div>
+        <hr class="booking-cards__divider" >
+        <h3 class="booking-cards__title" >RESERVAS</h3>
         <app-booking-card (typeBooking)="openModal($event)"></app-booking-card>
     </div>
 

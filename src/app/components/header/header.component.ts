@@ -1,11 +1,15 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
+
+  ngOnInit(): void {
+    this.initMenuToggle();
+  }
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
@@ -16,5 +20,21 @@ export class HeaderComponent {
     } else {
       header?.classList.remove('scroll-header');
     }
+  }
+
+  initMenuToggle() {
+    const navMenu = document.getElementById('nav-menu');
+    const navToggle = document.getElementById('nav-toggle');
+    const navClose = document.getElementById('nav-close');
+
+    // Abrir el menú
+    navToggle?.addEventListener('click', () => {
+      navMenu?.classList.add('show-menu');
+    });
+
+    // Cerrar el menú
+    navClose?.addEventListener('click', () => {
+      navMenu?.classList.remove('show-menu');
+    });
   }
 }

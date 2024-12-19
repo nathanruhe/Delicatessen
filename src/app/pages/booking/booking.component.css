@@ -58,6 +58,10 @@
     font-size: var(--h2-font-size);
 }
 
+.booking-cards__div {
+    border: 10px solid transparent;
+}
+
 .booking-cards__divider {
     margin-top: 50px;
 }
