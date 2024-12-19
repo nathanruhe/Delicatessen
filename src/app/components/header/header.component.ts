@@ -26,15 +26,20 @@ export class HeaderComponent implements OnInit {
     const navMenu = document.getElementById('nav-menu');
     const navToggle = document.getElementById('nav-toggle');
     const navClose = document.getElementById('nav-close');
+    const navLinks = document.querySelectorAll('.nav__link');
 
-    // Abrir el menú
     navToggle?.addEventListener('click', () => {
       navMenu?.classList.add('show-menu');
     });
 
-    // Cerrar el menú
     navClose?.addEventListener('click', () => {
       navMenu?.classList.remove('show-menu');
+    });
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu?.classList.remove('show-menu');
+      });
     });
   }
 }
