@@ -1,1 +1,169 @@
-<p>dashboard works!</p>
+<div class="dash container">
+
+    <button type="button" class="close-button" (click)="logout()">Cerrar Sesión</button>
+
+    <h1>Panel de Administración</h1>
+
+    <section class="dash__booking">
+        <h2>Gestión de Reservas</h2>
+        <div class="dash__booking-div">
+            <div class="dash__booking-div2">
+                <h3>Restaurante</h3>
+                <section class="dash__booking-restaurant">
+                    <div *ngFor="let item of bookingRestaurant; let i = index" class="div-restaurant" [ngClass]="{'background-color': restauranteColor.includes(i)}">
+                        <p>Nombre: <span>{{ item.name }}</span></p>
+                        <p>Teléfono: <span>{{ item.tel }}</span></p>
+                        <p>Email: <span>{{ item.email }}</span></p>
+                        <p>Fecha: <span>{{ item.date }}</span></p>
+                        <p>Hora: <span>{{ item.time }}</span></p>
+                        <p>Comensales: <span>{{ item.guests }}</span></p>
+                        <p>Comentario: <span>{{ item.comment }}</span></p>
+
+                        <div class="dash-item-div">
+                            <button 
+                            type="button" 
+                            class="accept-button" 
+                            (click)="background('restaurant', i)" 
+                            (click)="acceptBooking('restaurant', i)">
+                                {{ isAcceptedRestaurant[i] ? 'Confirmado' : 'confirmar' }}
+                            </button>
+
+                            <button type="button" class="cancel-button" (click)="deleteBooking(item)">
+                                Eliminar
+                            </button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <div class="dash__booking-div2">
+                <h3>Pub</h3>
+                <section class="dash__booking-pub">
+                    <div *ngFor="let item of bookingPub; let i = index" class="div-pub" [ngClass]="{'background-color': pubColor.includes(i)}">
+                        <p>Nombre: <span>{{ item.name }}</span></p>
+                        <p>Teléfono: <span>{{ item.tel }}</span></p>
+                        <p>Email: <span>{{ item.email }}</span></p>
+                        <p>Fecha: <span>{{ item.date }}</span></p>
+                        <p>Hora: <span>{{ item.time }}</span></p>
+                        <p>Comensales: <span>{{ item.guests }}</span></p>
+                        <p>Comentario: <span>{{ item.comment }}</span></p>
+
+                        <div class="dash-item-div">
+                            <button type="button" class="accept-button" (click)="background('pub', i)" (click)="acceptBooking('pub',i)">{{ isAcceptedPub[i] ? 'Confirmado' : 'confirmar' }}</button>
+                            <button type="button" class="cancel-button" (click)="deleteBooking(item)">Eliminar</button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <div class="dash__booking-div2">
+                <h3>Privado</h3>
+                <section class="dash__booking-private">
+                    <div *ngFor="let item of bookingPrivate; let i = index" class="div-private" [ngClass]="{'background-color': privateColor.includes(i)}">
+                        <p>Nombre: <span>{{ item.name }}</span></p>
+                        <p>Teléfono: <span>{{ item.tel }}</span></p>
+                        <p>Email: <span>{{ item.email }}</span></p>
+                        <p>Fecha: <span>{{ item.date }}</span></p>
+                        <p>Hora: <span>{{ item.time }}</span></p>
+                        <p>Comensales: <span>{{ item.guests }}</span></p>
+                        <p>Comentario: <span>{{ item.comment }}</span></p>
+
+                        <div class="dash-item-div">
+                            <button type="button" class="accept-button" (click)="background('private', i)" (click)="acceptBooking('private', i)">{{ isAcceptedPrivate[i] ? 'Confirmado' : 'confirmar' }}</button>
+                            <button type="button" class="cancel-button" (click)="deleteBooking(item)">Eliminar</button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </section>
+
+    <hr>
+
+    <section class="dash__event">
+        <h2>Gestión de Eventos</h2>
+        <div class="dash_event-container">
+
+            <section class="dash_event-item">
+                <form class="event-item" *ngFor="let item of event" #eventForm="ngForm" (ngSubmit)="editEvent(eventForm, item)">
+                    <img src="{{ item.img }}" alt="">
+
+                    <div>
+                        <label for="img">Url Imagen</label>
+                        <input type="text" name="img" [(ngModel)]="item.img" [placeholder]="item.img" class="event-form__input" required>
+                    </div>
+
+                    <div>
+                        <label for="title">Titulo</label>
+                        <input type="text" name="title" [(ngModel)]="item.title" [placeholder]="item.title" class="event-form__input" required>
+                    </div>
+
+                    <div>
+                        <label for="description">Descripción</label>
+                        <textarea name="description" [(ngModel)]="item.description" [placeholder]="item.description" class="event-form__input" required rows="3" maxlength="200"></textarea>
+                    </div>
+
+                    <div>
+                        <label for="date">Fecha</label>
+                        <input type="text" name="date" [(ngModel)]="item.date" [placeholder]="item.date" class="event-form__input" required>
+                    </div>
+
+                    <div>
+                        <label for="time">Hora</label>
+                        <input type="text" name="time" [(ngModel)]="item.time" [placeholder]="item.time" class="event-form__input" required>
+                    </div>
+
+                    <div class="event-item-div">
+                        <button type="submit" class="edit-button">Editar</button>
+                        <button type="button" class="delete-button" (click)="deleteEvent(item)">Eliminar</button>
+                    </div>
+                </form>
+            </section>
+
+            <section class="dash_event-form">
+                <form class="dash-form" #eventForm="ngForm" (ngSubmit)="addEvent(eventForm)">
+                    <p class="dash-form-title">Nuevo Evento</p>
+
+                    <div>
+                        <div>
+                            <input type="text" name="img" placeholder="Imagen" class="event-form__input form__add" ngModel required #imgId="ngModel">
+                        </div>
+    
+                        <div>
+                            <input type="text" name="title" placeholder="Título" class="event-form__input form__add" ngModel required #titleId="ngModel">
+                        </div>
+    
+                        <div>
+                            <input type="text" name="description" placeholder="Descripción" class="event-form__input form__add" ngModel required #descriptionId="ngModel">
+                        </div>
+    
+                        <div>
+                            <input type="date" name="date" placeholder="Imagen" class="event-form__input form__add" ngModel required #dateId="ngModel">
+                        </div>
+    
+                        <div>
+                            <input type="time" name="time" placeholder="Imagen" class="event-form__input form__add" ngModel required #timeId="ngModel">
+                        </div>
+                    </div>
+
+                    <button class="button" type="submit">Añadir</button>
+    
+                    <span *ngIf="eventForm.invalid && eventForm.submitted" class="error-message">
+                        Todos los campos son obligatorios.
+                    </span>
+                </form>
+            </section>
+        </div>
+    </section>
+
+    <!-- Modal -->
+    <div *ngIf="showConfirmationModal" class="confirmation-modal">
+        <div class="modal-content">
+            <h3>Confirmar la eliminación?</h3>
+            <div class="modal-buttons">
+                <button class="accept-button" (click)="confirmDelete()">Sí</button>
+                <button class="cancel-button" (click)="cancelDelete()">No</button>
+            </div>
+        </div>
+    </div>
+</div>
