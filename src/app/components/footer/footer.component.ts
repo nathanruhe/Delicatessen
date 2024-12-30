@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Newsletter } from 'src/app/models/newsletter';
 import { NewsletterService } from 'src/app/shared/newsletter.service';
+import { Response } from 'src/app/models/response';
 
 @Component({
   selector: 'app-footer',
@@ -18,8 +19,14 @@ export class FooterComponent {
         form.value.email
       );
       
-      this.newsletterService.addNewsLetter(nuevaLetter);
+      this.newsletterService.addNewsLetter(nuevaLetter).subscribe((resp: Response) => {
+        if (!resp.error) {
+          console.log(resp);
+        } else {
+          console.log(resp);
+        };
+      });
       form.reset();
-    } 
-  }
+    }; 
+  };
 }

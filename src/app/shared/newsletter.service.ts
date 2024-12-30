@@ -1,16 +1,17 @@
 import { Injectable } from '@angular/core';
 import { Newsletter } from 'src/app/models/newsletter';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class NewsletterService {
 
-  public newsletters: Newsletter[] = [];
+  private url = "http://localhost:3000";
 
-  constructor() { }
+  constructor(private http: HttpClient) {}
 
-  public addNewsLetter(newsletter: Newsletter): void {
-    this.newsletters.push(newsletter);
+  public addNewsLetter(newsletter: Newsletter) {
+    return this.http.post(this.url + "/newsletter", newsletter);
   }
 }
