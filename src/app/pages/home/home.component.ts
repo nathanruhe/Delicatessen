@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { EventService } from 'src/app/shared/event.service';
 import { Event } from 'src/app/models/event';
+import { ReviewService } from 'src/app/shared/review.service';
+import { Review } from 'src/app/models/review';
+import { Response } from 'src/app/models/response';
 
 declare var Swiper: any;
 
@@ -12,8 +15,9 @@ declare var Swiper: any;
 export class HomeComponent implements OnInit {
   
   public upcomingEvents: Event[] = [];
+  public lastReviews: Review[] = [];
 
-  constructor(private eventService: EventService) { }
+  constructor(private eventService: EventService, private reviewService: ReviewService) { }
 
   ngOnInit(): void {
     var homeSwiper = new Swiper(".home-swiper", {
@@ -33,5 +37,9 @@ export class HomeComponent implements OnInit {
     });
 
     this.upcomingEvents = this.eventService.getEvents().slice(0, 2);
+
+    this.reviewService.getReviews().subscribe((resp: Response) => {
+      this.lastReviews = resp.dataReview.slice(-3);
+    });
   }
 }

@@ -5,6 +5,7 @@ import { ContactService } from 'src/app/shared/contact.service';
 import { Contact } from "src/app/models/contact"
 import { ReviewService } from 'src/app/shared/review.service';
 import { Review } from "src/app/models/review"
+import { Response } from 'src/app/models/response';
 
 @Component({
   selector: 'app-contact',
@@ -41,7 +42,14 @@ export class ContactComponent {
         form.value.message
       );
 
-      this.reviewService.addReview(newReview);
+      this.reviewService.addReview(newReview).subscribe((resp: Response) => {
+        if (!resp.error) {
+          console.log(resp);
+        } else {
+          console.log(resp);
+        }
+      });
+
       this.toastr.success('¡Gracias por tu valoración!');
       form.resetForm();
 

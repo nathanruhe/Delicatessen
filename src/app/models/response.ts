@@ -12,10 +12,10 @@ export class Response {
         public code: number,
         public message: string,
         public dataAdmin: Admin,
-        public dataBooking: Booking,
+        public dataBooking: Booking[],
         public dataContact: Contact,
-        public dataEvent: Event,
-        public dataReview: Review,
+        public dataEvent: Event[],
+        public dataReview: Review[],
         public dataNewsletter: Newsletter,
     ){}
 }
