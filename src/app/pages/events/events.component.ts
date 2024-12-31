@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { EventService } from 'src/app/shared/event.service';
 import { Event } from 'src/app/models/event';
+import { Response } from 'src/app/models/response';
 
 @Component({
   selector: 'app-events',
@@ -14,6 +15,8 @@ export class EventsComponent {
   constructor(private eventService: EventService) {}
 
   ngOnInit(): void {
-    this.allEvents = this.eventService.getEvents();
+    this.eventService.getEvents().subscribe((resp: Response) => {
+      this.allEvents = resp.dataEvent;
+    })
   }
 }

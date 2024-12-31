@@ -36,7 +36,9 @@ export class HomeComponent implements OnInit {
       },
     });
 
-    this.upcomingEvents = this.eventService.getEvents().slice(0, 2);
+    this.eventService.getEvents().subscribe((resp: Response) => {
+      this.upcomingEvents = resp.dataEvent.slice(0, 2);
+    });
 
     this.reviewService.getReviews().subscribe((resp: Response) => {
       this.lastReviews = resp.dataReview.slice(-3);
