@@ -15,27 +15,17 @@ export class EventService {
     return this.http.get(this.url + "/events");
   }
 
-  // public addEvent(newEvent: Event): void {
-  //   const newId = this.events.length > 0 ? Math.max(...this.events.map(e => e.id)) + 1 : 1;
-  //   newEvent.id = newId;
-  //   this.events.push(newEvent);
-  // }
+  public addEvent(newEvent: Event) {
+    return this.http.post(this.url + "/dashboard", newEvent);
+  }
 
-  // public putEvent(editEvent: Event): void {
-  //   const index = this.events.findIndex(event => event.id === editEvent.id);
-  //   if (index !== -1) {
-  //     this.events[index] = { ...editEvent };
-  //   } else {
-  //     console.log("Evento no encontrado para editar");
-  //   }
-  // }
+  public putEvent(event: Event) {
+    return this.http.put(this.url + "/dashboard", event);
+  };
 
-  // public delete(event: Event): void {
-  //   const index = this.events.indexOf(event);
-  //   if (index !== -1) {
-  //     this.events.splice(index, 1);
-  //   } else {
-  //     console.log("Error al eliminar el evento");
-  //   }
-  // }
+  public deleteEvent(eventId: number) {
+    // Enviamos el id del evento en el cuerpo de la solicitud
+    return this.http.delete(`${this.url}/dashboard`, {body: { id_event: eventId } 
+    });
+}
 }
