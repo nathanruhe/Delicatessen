@@ -10,7 +10,7 @@
             <div class="dash__booking-div2">
                 <h3>Restaurante</h3>
                 <section class="dash__booking-restaurant">
-                    <div *ngFor="let item of bookingRestaurant; let i = index" class="div-restaurant" [ngClass]="{'background-color': restauranteColor.includes(i)}">
+                    <div *ngFor="let item of bookingRestaurant; let i = index" class="div-restaurant" [ngClass]="{'background-color': item.confirmed}">
                         <p>Nombre: <span>{{ item.name }}</span></p>
                         <p>Teléfono: <span>{{ item.tel }}</span></p>
                         <p>Email: <span>{{ item.email }}</span></p>
@@ -20,17 +20,8 @@
                         <p>Comentario: <span>{{ item.comment }}</span></p>
 
                         <div class="dash-item-div">
-                            <button 
-                            type="button" 
-                            class="accept-button" 
-                            (click)="background('restaurant', i)" 
-                            (click)="acceptBooking('restaurant', i)">
-                                {{ isAcceptedRestaurant[i] ? 'Confirmado' : 'confirmar' }}
-                            </button>
-
-                            <button type="button" class="cancel-button" (click)="deleteBooking(item)">
-                                Eliminar
-                            </button>
+                            <button type="button" class="accept-button" (click)="updateStatus('restaurant', i)">Confirmar</button>
+                            <button type="button" class="cancel-button" (click)="deleteBooking(item)">Eliminar</button>
                         </div>
                     </div>
                 </section>
@@ -39,7 +30,7 @@
             <div class="dash__booking-div2">
                 <h3>Pub</h3>
                 <section class="dash__booking-pub">
-                    <div *ngFor="let item of bookingPub; let i = index" class="div-pub" [ngClass]="{'background-color': pubColor.includes(i)}">
+                    <div *ngFor="let item of bookingPub; let i = index" class="div-pub" [ngClass]="{'background-color': item.confirmed}">
                         <p>Nombre: <span>{{ item.name }}</span></p>
                         <p>Teléfono: <span>{{ item.tel }}</span></p>
                         <p>Email: <span>{{ item.email }}</span></p>
@@ -49,7 +40,7 @@
                         <p>Comentario: <span>{{ item.comment }}</span></p>
 
                         <div class="dash-item-div">
-                            <button type="button" class="accept-button" (click)="background('pub', i)" (click)="acceptBooking('pub',i)">{{ isAcceptedPub[i] ? 'Confirmado' : 'confirmar' }}</button>
+                            <button type="button" class="accept-button" (click)="updateStatus('pub', i)">Confirmar</button>
                             <button type="button" class="cancel-button" (click)="deleteBooking(item)">Eliminar</button>
                         </div>
                     </div>
@@ -59,7 +50,7 @@
             <div class="dash__booking-div2">
                 <h3>Privado</h3>
                 <section class="dash__booking-private">
-                    <div *ngFor="let item of bookingPrivate; let i = index" class="div-private" [ngClass]="{'background-color': privateColor.includes(i)}">
+                    <div *ngFor="let item of bookingPrivate; let i = index" class="div-private" [ngClass]="{'background-color': item.confirmed}">
                         <p>Nombre: <span>{{ item.name }}</span></p>
                         <p>Teléfono: <span>{{ item.tel }}</span></p>
                         <p>Email: <span>{{ item.email }}</span></p>
@@ -69,7 +60,7 @@
                         <p>Comentario: <span>{{ item.comment }}</span></p>
 
                         <div class="dash-item-div">
-                            <button type="button" class="accept-button" (click)="background('private', i)" (click)="acceptBooking('private', i)">{{ isAcceptedPrivate[i] ? 'Confirmado' : 'confirmar' }}</button>
+                            <button type="button" class="accept-button" (click)="updateStatus('private', i)">Confirmar</button>
                             <button type="button" class="cancel-button" (click)="deleteBooking(item)">Eliminar</button>
                         </div>
                     </div>

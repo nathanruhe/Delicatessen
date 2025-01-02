@@ -1,13 +1,13 @@
 .dash {
-    margin-top: 150px;
-    margin-bottom: 100px;
+    margin-top: 9.375rem;
+    margin-bottom: 6.25rem;
     background-color: aliceblue;
     display: flex;
     flex-direction: column;
-    gap: 50px;
+    gap: 3.125rem;
     position: relative;
     align-items: center;
-    padding: 20px 40px;
+    padding: 1.25rem 2.5rem;
 }
 
 h1 {
@@ -20,10 +20,14 @@ hr {
     width: 90%;
 }
 
+label {
+    font-weight: bold;
+}
+
 .close-button {
     position: absolute;
-    top: 15px;
-    right: 15px;
+    top: 0.9375rem;
+    right: 0.9375rem;
 }
 
 .close-button,
@@ -34,7 +38,7 @@ hr {
     color: var(--second-color);
     border: 1px solid black;
     border-radius: 7px;
-    padding: 5px 10px;
+    padding: 0.3125rem 0.625rem;
     background-color: white;
     transition: all .2s linear;
 }
@@ -76,12 +80,12 @@ h2 {
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 0.625rem;
 }
 
 .dash__booking-div {
     display: flex;
-    gap: 20px;
+    gap: 1.25rem;
 }
 
 .dash__booking-div2 {
@@ -95,11 +99,11 @@ h2 {
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 50px;
+    gap: 3.125rem;
     overflow-y: auto;
-    height: 400px;
+    height: 25rem;
     background-color: white;
-    padding: 20px 10px;
+    padding: 1.25rem 0.625rem;
     
 }
 
@@ -107,20 +111,20 @@ h2 {
 .div-pub,
 .div-private {
     border-radius: 10px;
-    padding: 20px 10px;
+    padding: 1.25rem 0.625rem;
     background-color: var(--first-color);
 }
 
 .dash-item-div {
     display: flex;
     justify-content: center;
-    gap: 10px;
-    margin-top: 20px;
+    gap: 0.625rem;
+    margin-top: 1.25rem;
 }
 
 h3 {
     text-align: center;
-    margin-bottom: 10px;
+    margin-bottom: 0.625rem;
 }
 
 p {
@@ -141,7 +145,7 @@ span {
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 1.25rem;
 }
 
 .dash_event-container {
@@ -155,11 +159,11 @@ span {
     background-color: white;
     width: 60%;
     overflow-y: auto;
-    height: 500px;
+    height: 31.25rem;
     display: flex;
     flex-direction: column;
-    padding: 30px 10px;
-    gap: 50px;
+    padding: 1.875rem 0.625rem;
+    gap: 3.125rem;
 }
 
 .event-item {
@@ -168,25 +172,25 @@ span {
     width: 100%;
     display: flex;
     flex-direction: column;
-    padding: 20px 10px 10px;
+    padding: 1.25rem 0.625rem 0.625rem;
     position: relative;
 }
 
 .event-item div {
     display: flex;
     flex-direction: column;
-    margin-bottom: 5px;
+    margin-bottom: 0.3125rem;
 }
 
 img {
-    width: 250px;
-    height: 120px;
-    margin-bottom: 15px;
+    width: 15.625rem;
+    height: 7.5rem;
+    margin-bottom: 0.9375rem;
 }
 
 .event-form__input {
     border-radius: 5px;
-    padding: 5px 10px;
+    padding: 0.3125rem 0.625rem;
 }
 
 label {
@@ -208,11 +212,11 @@ textarea {
 
 .event-item-div {
     position: absolute;
-    right: 10px;
+    right: 0.625rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
+    gap: 0.625rem;
 }
 
 .dash_event-form {
@@ -226,23 +230,23 @@ textarea {
     box-shadow: 2px 2px 7px black;
     background-color: white;
     width: fit-content;
-    height: 360px;
-    padding: 20px 40px 10px;
+    height: 22.5rem;
+    padding: 1.25rem 2.5rem 0.625rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
+    gap: 0.625rem;
 }
 
 .dash-form div {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 0.625rem;
 }
 
 .dash-form-title {
     font-weight: bold;
-    font-size: 20px;
+    font-size: 1.25rem;
     color: black;
 }
 
@@ -257,11 +261,11 @@ textarea {
 }
 
 .button {
-    margin-top: 10px;
+    margin-top: 0.625rem;
 }
 
 .error-message {
-    font-size: 12px;
+    font-size: 0.75rem;
     color: var(--second-color);
 }
 
@@ -281,14 +285,72 @@ textarea {
 
 .modal-content {
     background-color: white;
-    padding: 20px;
+    padding: 1.25rem;
     border-radius: 8px;
     text-align: center;
-    width: 300px;
+    width: 18.75rem;
 }
 
 .modal-buttons {
     display: flex;
     justify-content: center;
-    gap: 50px;
+    gap: 3.125rem;
+}
+
+
+@media (max-width: 1000px) {
+    .dash {
+        padding: 2.5rem;
+    }
+
+    .dash__booking-div {
+        flex-wrap: wrap;
+    }
+
+    .dash_event-container {
+        flex-direction: column;
+        gap: 2.5rem;
+    }
+
+    .dash_event-item {
+        width: 90%;
+    }
+
+    .dash_event-form {
+        width: 100%;
+    }
+
+    .close-button {
+        position: relative;
+        top: initial;
+        right: initial;
+        margin-bottom: -1.5625rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .dash_event-item {
+        width: 100%;
+    }
+
+    .event-item div:last-child {
+        flex-direction: row;
+    }
+
+    .event-item-div {
+        position: initial;
+        gap: 0.625rem;
+        justify-content: center;
+    }
+
+    h1 {
+        text-align: center;
+    }
+}
+
+@media (max-width: 544px) {
+
+    h2 {
+        font-size: 1.5625rem;
+    }
 }

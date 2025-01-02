@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { Booking } from "src/app/models/booking"
 import { BookingService } from 'src/app/shared/booking.service';
+import { Response } from 'src/app/models/response';
 
 @Component({
   selector: 'app-booking-form',
@@ -19,6 +20,7 @@ export class BookingFormComponent {
   booking(form: NgForm) {
     if (form.valid) {
       const nuevaReserva = new Booking (
+        form.value.id_booking,
         this.typeBooking,
         form.value.name,
         form.value.tel,
@@ -26,15 +28,20 @@ export class BookingFormComponent {
         form.value.date,
         form.value.time,
         form.value.guests,
-        form.value.comment
+        form.value.comment,
+        form.value.confirmed
       );
 
-      this.bookingService.addBooking(nuevaReserva);
-      this.toastr.success('¡Reserva solicitada!');
+      this.bookingService.addBooking(nuevaReserva).subscribe((resp: Response) => {
+        if (!resp.error) {
+          console.log(resp);
+          this.toastr.success('¡Reserva solicitada!');
+        } else {
+          console.log(resp);
+          this.toastr.error('No se ha podido enviar la solicitud.', 'Error');
+        };
+      });
       form.reset();
-      
-    } else {
-      this.toastr.error('No se ha podido enviar la solicitud.', 'Error');
     }
   }
 

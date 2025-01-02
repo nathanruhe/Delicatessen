@@ -1,6 +1,7 @@
 export class Booking {
 
     constructor(
+        public id_booking: number = 0,
         public tipo: string, 
         public name: string, 
         public tel: string, 
@@ -9,5 +10,6 @@ export class Booking {
         public time: string, 
         public guests: number,
         public comment?: string,
+        public confirmed: boolean = false,
     ){}
 }
