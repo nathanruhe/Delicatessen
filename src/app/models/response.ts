@@ -17,5 +17,6 @@ export class Response {
         public dataEvent: Event[],
         public dataReview: Review[],
         public dataNewsletter: Newsletter,
+        public token: string,
     ){}
 }

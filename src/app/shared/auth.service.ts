@@ -5,25 +5,17 @@ import { Injectable } from '@angular/core';
 })
 export class AuthService {
 
-  private isAuthenticated: boolean = false;
+  constructor() {}
 
-  constructor() {
-    const storedAuth = localStorage.getItem('isAuthenticated');
-    this.isAuthenticated = storedAuth === 'true';
-  }
-
-  login() {
-    this.isAuthenticated = true;
-    localStorage.setItem('isAuthenticated', 'true');
+  login(token: string) {
+    localStorage.setItem('token', token);
   }
 
   logout() {
-    this.isAuthenticated = false;
-    localStorage.setItem('isAuthenticated', 'false');
+    localStorage.removeItem('token');
   }
 
   isLoggedIn(): boolean {
-    const storedAuth = localStorage.getItem('isAuthenticated');
-    return storedAuth === 'true';
+    return !!localStorage.getItem('token');
   }
 }

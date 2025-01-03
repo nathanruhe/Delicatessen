@@ -1,31 +1,35 @@
 import { Injectable } from '@angular/core';
 import { Admin } from "src/app/models/admin"
-import { Router } from '@angular/router';
 import { AuthService } from '../shared/auth.service';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AdminService {
 
-  public userAdmin: Admin = {
-    user: "nathan",
-    password: "1234"
+  private url = "http://localhost:3000";
+
+  constructor(private authService: AuthService,private http: HttpClient) { }
+
+  isAdmin(newAdmin: Admin) {
+    return this.http.post(this.url + "/admin", newAdmin);
   }
 
-  constructor(private router: Router, private authService: AuthService) { }
+  getToken(): string | null {
+    return localStorage.getItem('token');
+  }
 
-  isAdmin(newAdmin: Admin): void {
-    if (newAdmin.user === this.userAdmin.user && newAdmin.password === this.userAdmin.password) {
-      console.log("Sesión iniciada");
-      this.authService.login();
-      this.router.navigate(['/dashboard']);
-    } else {
-      console.log("¡Error al iniciar sesión!");
-    }
+  getHeaders() {
+    const token = this.getToken();
+    return new HttpHeaders({
+      Authorization: token ? `Bearer ${token}` : ''
+    });
   }
 
   logout() {
+    localStorage.removeItem('token');
     this.authService.logout();
   }
+  
 }
