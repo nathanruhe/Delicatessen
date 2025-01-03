@@ -24,6 +24,6 @@ export class EventService {
   };
 
   public deleteEvent(eventId: number) {
-    return this.http.delete(`${this.url}/dashboard`, {body: {id_event: eventId}});
+    return this.http.delete(`${this.url}/events`, {body: {id_event: eventId}});
   };
 }
